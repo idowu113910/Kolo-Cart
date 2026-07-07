@@ -1,0 +1,850 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import "tailwindcss";
+
+/* ============================================
+   ROOT & BASE
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.mobile-selected {
+  display: block;
+}
+
+.desktop-selected {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .mobile-selected {
+    display: none;
+  }
+
+  .desktop-selected {
+    display: block;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  height: 100%;
+}
+
+/* RESPONSIVE ROOT — no more hard 430px cap */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Changa One", sans-serif;
+  overflow-x: hidden;
+}
+
+.special-heading {
+  font-family: "Lobster", sans-serif;
+}
+
+/* ============================================
+   RESPONSIVE NAVBAR
+   ============================================ */
+
+/* Mobile pill nav — fluid between 320–430px */
+.mobile-nav-pill {
+  width: min(340px, calc(100vw - 32px));
+}
+
+/* Desktop nav — fluid from 768px up to 1440px */
+.desktop-nav {
+  width: min(581px, calc(100vw - 64px));
+}
+
+/* iPad specific */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .desktop-nav {
+    width: min(520px, calc(100vw - 48px));
+  }
+}
+
+/* 1440px desktop */
+@media (min-width: 1280px) {
+  .desktop-nav {
+    width: 581px;
+  }
+}
+
+.dropdown-slide {
+  animation: dropdownSlide 0.35s ease forwards;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE HERO SECTION
+   ============================================ */
+
+/* Top spacing after nav */
+.hero-top-spacing {
+  margin-top: 8rem;
+}
+
+@media (min-width: 768px) {
+  .hero-top-spacing {
+    margin-top: 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-top-spacing {
+    margin-top: 7rem;
+  }
+}
+
+/* Greeting heading — "Hello there," */
+.hero-greeting {
+  font-size: clamp(28px, 7vw, 72px);
+  line-height: 113%;
+}
+
+/* Name/Role heading */
+.hero-name {
+  font-size: clamp(26px, 7vw, 72px);
+  line-height: 1.05;
+}
+
+/* The sliding name slot */
+.hero-name-slot {
+  min-width: clamp(160px, 60vw, 700px);
+  height: clamp(36px, 7.5vw, 80px);
+  display: block;
+}
+
+/* Typewriter bio container */
+.hero-bio-wrap {
+  width: min(90vw, 636px);
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-bio-wrap {
+    width: min(80vw, 636px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-bio-wrap {
+    width: 636px;
+  }
+}
+
+/* ============================================
+   PAGE WRAPPER
+   ============================================ */
+.page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-animate.delay-1 {
+  transition-delay: 0.1s;
+}
+.scroll-animate.delay-2 {
+  transition-delay: 0.2s;
+}
+.scroll-animate.delay-3 {
+  transition-delay: 0.3s;
+}
+.scroll-animate.delay-4 {
+  transition-delay: 0.4s;
+}
+.scroll-animate.delay-5 {
+  transition-delay: 0.5s;
+}
+
+.scroll-animate-fast {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+.scroll-animate-fast.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.scroll-animate-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.scroll-animate-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.scroll-animate-scale.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.scroll-hidden.in-view {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   BREATHE ANIMATION
+   ============================================ */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* ============================================
+   MENU STYLES
+   ============================================ */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100;
+}
+
+@keyframes dropdownDrop {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.dropdown-slide {
+  animation: dropdownDrop 0.6s ease-out forwards;
+}
+
+@keyframes liDrop {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.float-down {
+  display: block;
+  animation: liDrop 0.5s ease-out forwards;
+}
+
+/* ============================================
+   SLIDE ANIMATIONS (name/role switcher)
+   ============================================ */
+:root {
+  --slide-duration: 900ms;
+  --hold-duration: 2200ms;
+  --easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes slideDownIn {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes slideDownOut {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+@keyframes slideUpIn {
+  0% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes slideUpOut {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-down-in {
+  animation: slideDownIn var(--slide-duration) var(--easing) forwards;
+}
+.animate-slide-down-out {
+  animation: slideDownOut var(--slide-duration) var(--easing) forwards;
+}
+.animate-slide-up-in {
+  animation: slideUpIn var(--slide-duration) var(--easing) forwards;
+}
+.animate-slide-up-out {
+  animation: slideUpOut var(--slide-duration) var(--easing) forwards;
+}
+
+[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+/* ============================================
+   SHATTER EFFECT
+   ============================================ */
+.shatter-wrap {
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+}
+.shatter-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  visibility: hidden;
+}
+.shatter-grid {
+  position: absolute;
+  inset: 0;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.shatter-tile {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: var(--bg-size-x) var(--bg-size-y);
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+@keyframes shatter {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot))
+      scale(var(--scale, 1));
+    opacity: var(--mid-opacity, 0.8);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+.shatter-animate .shatter-tile {
+  animation-name: shatter;
+  animation-duration: var(--anim-duration, 1400ms);
+  animation-timing-function: cubic-bezier(0.22, 0.9, 0.32, 1);
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* ============================================
+   CRAZY CARD
+   ============================================ */
+.crazy-card {
+  border-radius: 21.24px;
+  position: relative;
+  overflow: visible;
+  transform-style: preserve-3d;
+  transition: transform 400ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  animation:
+    float 6s ease-in-out infinite,
+    hueShift 10s linear infinite;
+}
+.crazy-card .card-inner {
+  position: relative;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.85),
+    rgba(6, 6, 6, 0.9)
+  );
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transform-style: preserve-3d;
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+}
+.crazy-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: 24px;
+  background: conic-gradient(from 0deg, #7c5cff, #00e0ff, #ff6a95, #7c5cff);
+  filter: blur(10px) saturate(1.2);
+  opacity: 0.9;
+  animation: rotateBorder 6s linear infinite;
+  mask: linear-gradient(#000 0 0);
+}
+.crazy-card .card-inner::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  transform: rotate(16deg);
+  animation: shineMove 5s linear infinite;
+  mix-blend-mode: overlay;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(40deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+@keyframes shineMove {
+  0% {
+    transform: translateX(-30%) rotate(16deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(10%) rotate(16deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(120%) rotate(16deg);
+    opacity: 0;
+  }
+}
+.crazy-tech {
+  animation: spinSlow 4.5s linear infinite;
+  transform-origin: center;
+}
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.crazy-live-btn {
+  background: linear-gradient(90deg, #fff 0%, #ffd37a 40%, #fff 100%);
+  background-size: 200% 200%;
+  animation: btnPulse 2.8s ease-in-out infinite;
+  color: #000;
+}
+@keyframes btnPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.crazy-git {
+  animation: gitBounce 1.8s ease-in-out infinite;
+}
+@keyframes gitBounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.crazy-card:hover {
+  animation-play-state: paused;
+  transform: perspective(900px) rotateX(6deg) rotateY(-6deg) scale(1.06);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================
+   HERO SLIDE WRAP ANIMATION
+   ============================================ */
+.hero-slide-wrap.not-visible {
+  opacity: 0;
+  transform: translateY(60px);
+}
+.hero-slide-wrap.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.9s ease-out,
+    transform 0.9s ease-out;
+}
+.hero-slide-wrap.not-visible .will-animate,
+.hero-slide-wrap.not-visible .will-animate * {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    transform 700ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  will-change: transform, opacity;
+}
+.hero-slide-wrap.is-visible .will-animate,
+.hero-slide-wrap.is-visible .will-animate * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-slide-wrap.is-visible .will-animate > :nth-child(1) {
+  transition-delay: 0ms;
+}
+.hero-slide-wrap.is-visible .will-animate > :nth-child(2) {
+  transition-delay: 60ms;
+}
+.hero-slide-wrap.is-visible .will-animate > :nth-child(3) {
+  transition-delay: 120ms;
+}
+.hero-slide-wrap.is-visible .will-animate > :nth-child(4) {
+  transition-delay: 160ms;
+}
+
+.hero-slide-wrap.is-visible h4 {
+  transition-delay: 0.1s;
+}
+.hero-slide-wrap.is-visible h1 {
+  transition-delay: 0.2s;
+}
+.hero-slide-wrap.is-visible .relative {
+  transition-delay: 0.3s;
+}
+
+/* ============================================
+   MISC ANIMATIONS
+   ============================================ */
+@keyframes zoomInOut {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2.2);
+  }
+}
+.zoom {
+  animation: zoomInOut 2s ease-in-out infinite;
+}
+
+@keyframes zoomShake {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1.2) rotate(4deg);
+  }
+  45% {
+    transform: scale(1.2) rotate(-4deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(2deg);
+  }
+  55% {
+    transform: scale(1.2) rotate(-2deg);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.zoom-shake {
+  width: 125px;
+  height: 117px;
+  animation: zoomShake 2s ease-in-out infinite;
+}
+.zoom-shark {
+  width: 50px;
+  height: 50px;
+  animation: zoomShake 2s ease-in-out infinite;
+}
+
+/* ============================================
+   GLOW BUTTON
+   ============================================ */
+.glow-button {
+  box-shadow: 0 0 12px rgba(103, 65, 237, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+.glow-button:hover {
+  box-shadow: 0 0 22px rgba(103, 65, 237, 0.7);
+}
+
+/* ============================================
+   SELECTED PROJECTS — Responsive Cards
+   ============================================ */
+
+/*
+  .project-card fills its grid column naturally.
+  Height is content-driven — no hardcoded px height.
+  The two-column CSS Grid in SelectedProjects.jsx handles placement.
+*/
+.project-card {
+  width: 100%;
+  min-height: 580px;
+  box-sizing: border-box;
+}
+
+/* ── iPad (768–1023px) ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Cards */
+  .project-card {
+    min-height: 500px;
+    padding: 20px;
+  }
+
+  .project-card h5 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .project-card p {
+    font-size: 13px;
+  }
+
+  /* Tighter grid gap */
+  .projects-grid .grid {
+    gap: 1.25rem;
+  }
+
+  /* Tech stack — smaller icons & labels */
+  .tech-stack-box img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tech-stack-box span {
+    font-size: 12px;
+  }
+
+  /* Contact section */
+  .contact-heading {
+    font-size: 40px;
+  }
+
+  .contact-subheading {
+    font-size: 20px;
+  }
+
+  .contact-email {
+    font-size: 28px;
+  }
+
+  .contact-social img {
+    width: 36px;
+  }
+}
+
+/* ── 1280px+ Desktop ── */
+@media (min-width: 1280px) {
+  .project-card {
+    min-height: 650px;
+  }
+
+  .contact-heading {
+    font-size: 64px;
+  }
+
+  .contact-subheading {
+    font-size: 38px;
+  }
+
+  .contact-email {
+    font-size: 56px;
+  }
+
+  .contact-social img {
+    width: 60px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .crazy-card,
+  .crazy-card .card-inner,
+  .crazy-tech,
+  .crazy-live-btn,
+  .crazy-git {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero-slide-wrap.not-visible .will-animate,
+  .hero-slide-wrap.not-visible .will-animate * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-slide-down-in,
+  .animate-slide-down-out,
+  .animate-slide-up-in,
+  .animate-slide-up-out {
+    animation: none;
+  }
+}
