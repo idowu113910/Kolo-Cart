@@ -70,7 +70,7 @@ export const HelpPage: React.FC = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '24px' }}>
             <a
-              href="https://wa.me/2349132515670"
+              href="https://wa.me/2347076800531"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -106,7 +106,7 @@ export const HelpPage: React.FC = () => {
             </a>
 
             <a
-              href="tel:09132515670"
+              href="tel:08113613919"
               style={{
                 display: 'flex',
                 flexDirection: 'column',

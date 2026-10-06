@@ -115,7 +115,7 @@ export const CategoryPage: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981' }} />
                 <span style={{ color: '#1E293B', fontWeight: '600' }}>
-                  Rank #{selectedSupermarket.rank} • Open by {selectedSupermarket.openingTime}
+                  Rank - {selectedSupermarket.rank} • Open by {selectedSupermarket.openingTime}
                 </span>
               </div>
               <span style={{ color: '#64748B' }}>

@@ -34,7 +34,7 @@ export const HomePage: React.FC = () => {
         <IonToolbar style={{ padding: '10px 16px 4px' }}>
           <div>
             <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', textTransform: 'uppercase' }}>
-              Enugu, Nigeria
+              Nigerian
             </div>
             <h1 style={{ margin: '2px 0 0', fontSize: '20px', fontWeight: '800', color: '#162544' }}>
               Ranked Supermarkets
