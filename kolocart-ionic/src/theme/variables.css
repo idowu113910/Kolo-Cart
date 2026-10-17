@@ -1,0 +1,119 @@
+/**
+ * KoloCart Theme Variables
+ */
+:root {
+  --ion-color-primary: #162544;
+  --ion-color-primary-rgb: 22, 37, 68;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #13213c;
+  --ion-color-primary-tint: #2d3b57;
+
+  --ion-color-secondary: #EEF0FD;
+  --ion-color-secondary-rgb: 238, 240, 253;
+  --ion-color-secondary-contrast: #162544;
+  --ion-color-secondary-contrast-rgb: 22, 37, 68;
+
+  --ion-color-success: #10B981;
+  --ion-color-danger: #EF4444;
+  --ion-color-warning: #F59E0B;
+
+  --ion-background-color: #F8F9FD;
+  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --ion-tab-bar-background: #FFFFFF;
+  --ion-tab-bar-border-color: #F1F5F9;
+}
+
+body {
+  font-family: var(--ion-font-family);
+  background-color: #F8F9FD;
+  color: #1E293B;
+  -webkit-font-smoothing: antialiased;
+}
+
+ion-toolbar {
+  --background: #FFFFFF;
+  --border-width: 0;
+}
+
+ion-content {
+  --background: #F8F9FD;
+}
+
+.bg-white {
+  --background: #FFFFFF;
+}
+
+/* Custom Tab Bar Styling matching Figma */
+ion-tab-bar {
+  --background: #FFFFFF;
+  --border: 1px solid #F1F5F9;
+  height: 64px;
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+  padding-top: 6px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+}
+
+ion-tab-button {
+  --color: #64748B;
+  --color-selected: #162544;
+  font-size: 11px;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+}
+
+ion-tab-button.tab-selected {
+  --color: #162544;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  transform: scale(1.08);
+  transition: transform 0.15s ease;
+}
+
+/* Red tab badge pill */
+.tab-badge-pill {
+  position: absolute;
+  top: 4px;
+  right: 22%;
+  background-color: #EF4444;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  line-height: 1;
+}
+
+/* Active tab soft background pill */
+ion-tab-button.tab-selected::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  width: 52px;
+  height: 32px;
+  background-color: #EDEFFF;
+  border-radius: 16px;
+  z-index: -1;
+}
+
+/* Shimmer animation */
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
