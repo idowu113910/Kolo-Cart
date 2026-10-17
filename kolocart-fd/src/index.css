@@ -1,0 +1,13 @@
+@import url("https://googleapis.com");
+@import "tailwindcss";
+
+/* This is the new Tailwind v4 way to configure settings and variables */
+@theme {
+  /* Define custom color schemes for the Kolo-Cart project */
+  --color-kolo-green: #00875a;
+  --color-kolo-gold: #f59e0b;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+/* This line tells Tailwind to look at the HTML 'dark' class for switching modes */
+@custom-variant dark (&:where(.dark, .dark *));
